@@ -1,8 +1,10 @@
 package com.cc.cmarket.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.cc.cmarket.R;
+import com.cc.cmarket.activity.DetailActivity;
 import com.cc.cmarket.source.Data;
 import com.cc.cmarket.source.Goods;
 import com.cc.cmarket.source.ResponseObject;
@@ -86,13 +89,11 @@ public class FragmentOne extends Fragment
 
         initData();
 
-        adapter.setOnItemClick(new OnItemClick()
-        {//点击事件逻辑，具体代码看Adapter
-            @Override
-            public void onItemClick(int pos, Goods data)
-            {
-
-            }
+        //点击事件逻辑，具体代码看Adapter
+        adapter.setOnItemClick((pos, good) -> {
+            Intent intent = new Intent(getActivity(), DetailActivity.class);
+            intent.putExtra("goodsId", good.getGoodsId());
+            startActivity(intent);
         });
     }
 
