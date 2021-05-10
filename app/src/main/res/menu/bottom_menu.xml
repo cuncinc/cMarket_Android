@@ -3,14 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_index"
-        android:title="index"
-        android:icon="@mipmap/ic_launcher"/>
-    <item android:title="Other"
-        android:icon="@mipmap/ic_launcher"/>
+        android:id="@+id/menu_market"
+        android:title="市场"
+        android:icon="@drawable/ic_shop"/>
+    <item android:title="发布"
+        android:id="@+id/menu_release"
+        android:icon="@drawable/ic_add"/>
     <item
-        android:id="@+id/menu_user"
-        android:title="User"
-        android:icon="@mipmap/ic_launcher"/>
-
+        android:id="@+id/menu_me"
+        android:title="我的"
+        android:icon="@drawable/ic_me"/>
 </menu>

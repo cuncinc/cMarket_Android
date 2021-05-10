@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
         ButterKnife.bind(this);
         //授权
         initPermissions();
@@ -135,7 +136,7 @@ public class LoginActivity extends AppCompatActivity
         Gson gson = new Gson();
         String info = gson.toJson(par);
 
-        OkhttpUtils.post("/user/loginByCode", info, new Callback()
+        OkhttpUtils.post("/user/logonAndLoginByCode", info, new Callback()
         {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e)
@@ -147,16 +148,16 @@ public class LoginActivity extends AppCompatActivity
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException
             {
-//                handler.post(() -> {
-//                    try
-//                    {
-//                        Thread.sleep(1000);
-//                    }
-//                    catch (InterruptedException e)
-//                    {
-//                        e.printStackTrace();
-//                    }
-//                });
+                //                handler.post(() -> {
+                //                    try
+                //                    {
+                //                        Thread.sleep(1000);
+                //                    }
+                //                    catch (InterruptedException e)
+                //                    {
+                //                        e.printStackTrace();
+                //                    }
+                //                });
                 ResponseBody body = response.body();
                 assert body != null;
                 String json = body.string();

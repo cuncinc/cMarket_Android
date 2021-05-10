@@ -19,12 +19,14 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
+import static java.lang.String.valueOf;
+
 public class OkhttpUtils
 {
     /**
      * 请求基地址
      */
-//    public static final String BASE_URL = "http://150.158.190.228";
+    //    public static final String BASE_URL = "http://150.158.190.228";
     public static final String BASE_URL = "http://10.33.0.177";
 
     public static OkHttpClient okHttpClient = new OkHttpClient.Builder().cookieJar(new CookiesManager()).build();
@@ -83,7 +85,7 @@ public class OkhttpUtils
         // 创建一个 request
         Request request = builder.url(BASE_URL + url).build();
 
-        Log.e("post:"+url, json);
+        Log.e("post:" + url, json);
         // 创建一个 Headers.Builder
         Headers.Builder headerBuilder = request.headers().newBuilder();
         headerBuilder.add("token", token);
@@ -118,31 +120,42 @@ public class OkhttpUtils
         okHttpClient.newCall(builder.build()).enqueue(callback);
     }
 
-    public static void postPictureWithFile(String url, Map<String, String> uploadInfo, FileProgressRequestBody.ProgressListener listener,
-            Callback callback) throws IOException
+    public static void postFile(String url, Map<String, String> info, File file, Callback callback)
     {
-        String pictureName = uploadInfo.get("pictureName");
-        String goodsId = uploadInfo.get("goodsId");
-        String filePath = uploadInfo.get("filePath");
+        //        FileProgressRequestBody body = new FileProgressRequestBody(file);
+    }
+
+    public static void postPictureWithFile(String url, Map<String, String> map, FileProgressRequestBody.ProgressListener listener,
+            Callback callback)
+    {
+        String pictureName = map.get("pictureName");
+        String goodsId = map.get("goodsId");
+        String filePath = map.get("filePath");
         File file = new File(filePath);
         FileProgressRequestBody fileProgressRequestBody = new FileProgressRequestBody(file, "application/form-data;charset=utf-8",
                 listener);
-        MultipartBody build = new MultipartBody.Builder().setType(MultipartBody.FORM)
-                .addFormDataPart("file", Uri.decode(pictureName + file.getName().substring(file.getName().lastIndexOf("."))),
-                        fileProgressRequestBody)
-                //                .addFormDataPart("publishVisiable", visiable)
-                //                .addFormDataPart("ablumId", ablumId)
-                //                .addFormDataPart("pictureInfo", pictureInfo)
-                .build();
+        MultipartBody.Builder build = new MultipartBody.Builder().setType(MultipartBody.FORM);
+        build.addFormDataPart("file", Uri.decode(pictureName + file.getName().substring(file.getName().lastIndexOf("."))),
+                fileProgressRequestBody);
+
+        if (map != null)
+        {
+            // map 里面是请求中所需要的 key 和 value
+            for (Map.Entry entry : map.entrySet())
+            {
+                build.addFormDataPart(valueOf(entry.getKey()), valueOf(entry.getValue()));
+            }
+        }
 
         Request.Builder builder = new Request.Builder();
         // 创建一个 request
         Request request = builder.url(BASE_URL + url).build();
         // 创建一个 Headers.Builder
         Headers.Builder headerBuilder = request.headers().newBuilder();
+
         headerBuilder.add("token", token);
         // 设置自定义的 builder
-        builder.headers(headerBuilder.build()).post(build);
+        builder.headers(headerBuilder.build()).post(build.build());
         okHttpClient.newCall(builder.build()).enqueue(callback);
     }
 }

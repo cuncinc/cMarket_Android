@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".activity.ReleaseActivity">
+    <Button
+        android:id="@+id/release_release"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="发布"/>
+    
+    <EditText
+        android:id="@+id/release_desc"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="描述"
+        app:layout_constraintTop_toBottomOf="@id/release_release"/>
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/release_card_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/release_desc">
+        <ImageView
+            android:id="@+id/release_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_add"
+            android:scaleType="centerCrop"
+            android:background="#F7F7F7"/>
+    </androidx.cardview.widget.CardView>
+    
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/release_card_view"
+        app:startIconDrawable="@drawable/ic_price">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/release_price"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:hint="价格"
+            android:inputType="numberDecimal"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

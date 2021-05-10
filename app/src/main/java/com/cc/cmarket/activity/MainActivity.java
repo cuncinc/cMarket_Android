@@ -3,6 +3,7 @@ package com.cc.cmarket.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -22,32 +23,31 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBottomView=findViewById(R.id.bottomNavigationView);
+        getSupportActionBar().hide();
+        mBottomView = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.fragView, MainFragment.getInstance())
                 .add(R.id.fragView, UserFragment.getInstance())
-                .hide(UserFragment.getInstance())
-                .show(MainFragment.getInstance())
-                .commit();
+                .hide(UserFragment.getInstance()).show(MainFragment.getInstance()).commit();
 
-        mBottomView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        mBottomView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
+        {
             @Override
-            public boolean onNavigationItemSelected(@NonNull
-                    MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.menu_index:
-                        getSupportFragmentManager()
-                                .beginTransaction()
-                                .show(MainFragment.getInstance())
-                                .hide(UserFragment.getInstance())
+            public boolean onNavigationItemSelected(@NonNull MenuItem item)
+            {
+                switch (item.getItemId())
+                {
+                    case R.id.menu_release:
+                        Intent intent = new Intent(MainActivity.this, ReleaseActivity.class);
+                        startActivity(intent);
+//                        break;
+                    case R.id.menu_market:
+                        getSupportFragmentManager().beginTransaction().show(MainFragment.getInstance()).hide(UserFragment.getInstance())
                                 .commit();
                         break;
-                    case R.id.menu_user:
-                        getSupportFragmentManager()
-                                .beginTransaction()
-                                .show(UserFragment.getInstance())
-                                .hide(MainFragment.getInstance())
+                    case R.id.menu_me:
+                        getSupportFragmentManager().beginTransaction().show(UserFragment.getInstance()).hide(MainFragment.getInstance())
                                 .commit();
                         break;
 

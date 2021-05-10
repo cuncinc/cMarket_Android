@@ -60,7 +60,7 @@ public class FileProgressRequestBody extends RequestBody
             {
                 total += read;
                 sink.flush();
-                this.listener.transferred(total / file.length());
+//                this.listener.transferred(total / file.length());
 
             }
         }

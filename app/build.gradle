@@ -61,6 +61,8 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
     //Gson
     implementation 'com.google.code.gson:gson:2.8.6'
+    //Picture select
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.6.0'
 
 
     testImplementation 'junit:junit:4.12'
