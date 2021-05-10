@@ -6,4 +6,5 @@
     
     <color name="black">#000000</color>
     <color name="unable">#E7E9EB</color>
+    <color name="price_red">#EB544D</color>
 </resources>

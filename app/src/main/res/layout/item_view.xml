@@ -3,37 +3,75 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_margin="16dp"
+    android:layout_margin="10dp"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="100dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_card_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxHeight="500dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/cardview_dark_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="8dp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <ImageView
+            android:id="@+id/item_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:src="@drawable/goods"/>
+    </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/disc"
+        android:id="@+id/item_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_card_view"
+        app:layout_constraintStart_toStartOf="@+id/item_card_view"
+        app:layout_constraintTop_toBottomOf="@+id/item_card_view" />
+    
+    <TextView
+        android:id="@+id/item_rmb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="￥"
+        android:textSize="10sp"
+        android:textColor="@color/price_red"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/item_card_view"
+        app:layout_constraintBottom_toBottomOf="@id/item_price"/>
+    <TextView
+        android:id="@+id/item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:maxWidth="100dp"
-        android:layout_marginBottom="8dp"
-        android:maxLines="3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/img"
-        app:layout_constraintStart_toStartOf="@+id/img"
-        app:layout_constraintTop_toBottomOf="@+id/img" />
+        android:textSize="16sp"
+        android:textColor="@color/price_red"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/item_rmb"
+        app:layout_constraintTop_toBottomOf="@id/item_desc"/>
+    
+    <ImageView
+        android:id="@+id/item_avatar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/item_rmb"
+        app:layout_constraintStart_toStartOf="@id/item_card_view"/>
+    
+    <TextView
+        android:id="@+id/item_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="12sp"
+        android:textColor="#A3A3A3"
+        app:layout_constraintTop_toTopOf="@id/item_avatar"
+        app:layout_constraintBottom_toBottomOf="@id/item_avatar"
+        app:layout_constraintStart_toEndOf="@id/item_avatar"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
