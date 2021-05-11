@@ -85,9 +85,10 @@ public class DetailActivity extends AppCompatActivity
                 {
                 }.getType();
                 ResponseObject<Goods> object = new Gson().fromJson(json, type);
-                if (object == null || !object.getCode().equals(200))
+                if (object == null || !object.getCode().equals("200"))
                 {
-                    handler.post(()->FancyToast.makeText(DetailActivity.this, "发生错误", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show());
+                    handler.post(()->FancyToast.makeText(DetailActivity.this, "网络请求失败 "+object.getMessage(), FancyToast.LENGTH_SHORT, FancyToast.ERROR,
+                            false).show());
                     finish();
                 }
                 goods = object.getData();

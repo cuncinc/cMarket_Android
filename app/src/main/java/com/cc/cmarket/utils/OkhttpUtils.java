@@ -26,8 +26,8 @@ public class OkhttpUtils
     /**
      * 请求基地址
      */
-    //    public static final String BASE_URL = "http://150.158.190.228";
-    public static final String BASE_URL = "http://10.33.0.177";
+        public static final String BASE_URL = "http://150.158.190.228";
+//    public static final String BASE_URL = "http://10.33.0.177";
 
     public static OkHttpClient okHttpClient = new OkHttpClient.Builder().cookieJar(new CookiesManager()).build();
 

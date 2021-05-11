@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CMarket</string>
+    <string name="app_name">智享生活</string>
     <string name="title_activity_login">登录</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
