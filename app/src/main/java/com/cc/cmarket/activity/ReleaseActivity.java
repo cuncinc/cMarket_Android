@@ -122,6 +122,7 @@ public class ReleaseActivity extends AppCompatActivity
             {
                 handler.post(() -> FancyToast
                         .makeText(ReleaseActivity.this, "商品发布失败", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show());
+                return;
             }
 
             @Override

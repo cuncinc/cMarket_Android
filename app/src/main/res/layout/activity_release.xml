@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+    android:layout_margin="16dp"
     tools:context=".activity.ReleaseActivity">
     <Button
         android:id="@+id/release_release"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="72dp"
+        android:layout_height="36dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:background="@drawable/bg_release_button"
         app:layout_constraintTop_toTopOf="parent"
         android:text="发布"/>
     
@@ -18,14 +22,15 @@
         android:id="@+id/release_desc"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:hint="描述"
+        android:hint="商品描述"
         app:layout_constraintTop_toBottomOf="@id/release_release"/>
     
     <androidx.cardview.widget.CardView
         android:id="@+id/release_card_view"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:cardCornerRadius="8dp"
+        android:layout_marginTop="12dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/release_desc">
         <ImageView
@@ -41,9 +46,7 @@
         android:id="@+id/text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/release_card_view"
         app:startIconDrawable="@drawable/ic_price">

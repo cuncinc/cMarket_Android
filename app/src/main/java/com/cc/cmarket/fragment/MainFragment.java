@@ -21,31 +21,31 @@ public class MainFragment extends Fragment
 {
 
     private static MainFragment fragment;
-    ViewPager mViewpager;
-    TabLayout mTabs;
-    static List<Fragment> frags;
+//    ViewPager mViewpager;
+//    TabLayout mTabs;
+//    static List<Fragment> frags;
 
-    static
-    {
-        frags = new ArrayList<>();
-        frags.add(FragmentOne.getInstance());
-        frags.add(FragmentTwo.getInstance());
-    }
+//    static
+//    {
+//        frags = new ArrayList<>();
+//        frags.add(FragmentOne.getInstance());
+//        frags.add(FragmentTwo.getInstance());
+//    }
 
-    public static Fragment getInstance()
-    {
-        if (fragment == null)
-        {
-            synchronized (MainFragment.class)
-            {
-                if (fragment == null)
-                {
-                    fragment = new MainFragment();
-                }
-            }
-        }
-        return fragment;
-    }
+//    public static Fragment getInstance()
+//    {
+//        if (fragment == null)
+//        {
+//            synchronized (MainFragment.class)
+//            {
+//                if (fragment == null)
+//                {
+//                    fragment = new MainFragment();
+//                }
+//            }
+//        }
+//        return fragment;
+//    }
 
 
     @Nullable
@@ -61,32 +61,32 @@ public class MainFragment extends Fragment
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-        mTabs = view.findViewById(R.id.tabs);
-        mViewpager = view.findViewById(R.id.mviewpager);
-        mViewpager.setAdapter(new FragmentPagerAdapter(getFragmentManager())
-        {
-            @NonNull
-            @Override
-            public Fragment getItem(int position)
-            {
-                return frags.get(position);
-            }
+//        mTabs = view.findViewById(R.id.tabs);
+//        mViewpager = view.findViewById(R.id.mviewpager);
+//        mViewpager.setAdapter(new FragmentPagerAdapter(getFragmentManager())
+//        {
+//            @NonNull
+//            @Override
+//            public Fragment getItem(int position)
+//            {
+//                return frags.get(position);
+//            }
+//
+//            @Override
+//            public int getCount()
+//            {
+//                return frags.size();
+//            }
 
-            @Override
-            public int getCount()
-            {
-                return frags.size();
-            }
 
-
-            @Nullable
-            @Override
-            public CharSequence getPageTitle(int position)
-            {
-                return frags.get(position).getClass().getName();
-            }
-        });
+//            @Nullable
+//            @Override
+//            public CharSequence getPageTitle(int position)
+//            {
+//                return frags.get(position).getClass().getName();
+//            }
+//        });
         //        mViewpager.setOffscreenPageLimit(5);
-        mTabs.setupWithViewPager(mViewpager);//与TabLayout绑定
+//        mTabs.setupWithViewPager(mViewpager);//与TabLayout绑定
     }
 }

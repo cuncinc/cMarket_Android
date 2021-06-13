@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.cc.cmarket.R;
-import com.cc.cmarket.fragment.MainFragment;
+import com.cc.cmarket.fragment.FragmentOne;
 import com.cc.cmarket.fragment.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity
         mBottomView = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragView, MainFragment.getInstance())
+                .add(R.id.fragView, FragmentOne.getInstance())
                 .add(R.id.fragView, UserFragment.getInstance())
-                .hide(UserFragment.getInstance()).show(MainFragment.getInstance()).commit();
+                .hide(UserFragment.getInstance()).show(FragmentOne.getInstance()).commit();
 
         mBottomView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
         {
@@ -43,11 +43,11 @@ public class MainActivity extends AppCompatActivity
                         startActivity(intent);
 //                        break;
                     case R.id.menu_market:
-                        getSupportFragmentManager().beginTransaction().show(MainFragment.getInstance()).hide(UserFragment.getInstance())
+                        getSupportFragmentManager().beginTransaction().show(FragmentOne.getInstance()).hide(UserFragment.getInstance())
                                 .commit();
                         break;
                     case R.id.menu_me:
-                        getSupportFragmentManager().beginTransaction().show(UserFragment.getInstance()).hide(MainFragment.getInstance())
+                        getSupportFragmentManager().beginTransaction().show(UserFragment.getInstance()).hide(FragmentOne.getInstance())
                                 .commit();
                         break;
 
